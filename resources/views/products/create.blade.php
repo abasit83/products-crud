@@ -46,7 +46,7 @@
 
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" name="price" class="form-control" value="{{ old('price') }}"/>
+                        <input type="number" name="price" class="form-control" value="{{ old('price') }}"/>
 						@error('price')
 						<span class="validation-error" ><i class='fas fa-exclamation-circle'></i> {{ $message }}</span>
 						@enderror

@@ -47,8 +47,14 @@
                                 <td>{{ $p->price }}</td>
                                 <td>{{ \App\Http\Helpers\Status::GetByText[$p->status] }}</td>
                                 <td>
-                                    <a href="{{ route('products.show', $p->id) }}">View</a>  |
-                                    <a href="{{ route('products.edit', $p->id) }}">Edit</a>
+                                    <a href="{{ route('products.show', $p->id) }}" class="btn btn-info btn-sm">View</a> 
+                                    <a href="{{ route('products.edit', $p->id) }}" class="btn btn-info btn-sm">Edit</a> 
+                                    
+                                    <form method="post" action="{{ route('products.destroy', $p->id) }}">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
